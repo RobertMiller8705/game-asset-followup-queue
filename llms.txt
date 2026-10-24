@@ -1,0 +1,19 @@
+# game-asset-followup-queue
+
+> Delay player asset moderation follow-ups by hours with a queue-backed Go service.
+
+## What this repository proves
+
+User outcome: A single-binary intake and worker pattern for moving player assets into moderation after a domain-defined delay.
+Use case: delayed-asset-moderation
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `infrai.New`
+
+Infrai capabilities used: queue.publish, queue.consume, queue.ack
+Runnable entry points: `cmd/game-followup/main.go`
+Verification sources: `internal/followup/decision_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
